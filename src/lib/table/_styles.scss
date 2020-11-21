@@ -10,7 +10,7 @@
     margin: auto;
     text-align: left;
     width: 100%;
-    padding: 15px 20px;
+    margin: 15px 40px;
     font-size: 18px;
     line-height: 25px;
 
@@ -18,13 +18,5 @@
       font-size: 14px;
       line-height: 18px;
     }
-  }
-
-  li:first-child {
-    padding-left: 15px;
-  }
-
-  li:last-child {
-    padding-right: 15px;
   }
 }
