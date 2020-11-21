@@ -8,7 +8,7 @@ function Tabs(props: any) {
     <div className="tabs">
       <ul className="tabs__header">
         {tabs &&
-          tabs.map((tab: string, index: number) => (
+          tabs.map((tab: { title: string; nav: string[] }, index: number) => (
             <li
               key={tab.title}
               onClick={() => setActive(index)}
