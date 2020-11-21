@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+type t = { title: string; nav: string[] }
+
 function Tabs(props: any) {
   const { tabs } = props
   const [active, setActive] = useState<number>(0)
@@ -8,7 +10,7 @@ function Tabs(props: any) {
     <div className="tabs">
       <ul className="tabs__header">
         {tabs &&
-          tabs.map((tab: { title: string; nav: string[] }, index: number) => (
+          tabs.map((tab: t, index: number) => (
             <li
               key={tab.title}
               onClick={() => setActive(index)}

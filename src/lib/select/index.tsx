@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { ReactComponent as Angle } from 'assets/img/icons/angle.svg'
+import { type } from 'os'
 
-function Select(props: {
+type t = {
   options: string[]
   onClick: (param: number) => void
-}) {
+}
+
+function Select(props: t) {
   const [active, setActive] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
   const { options, onClick } = props
