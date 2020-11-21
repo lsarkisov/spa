@@ -1,0 +1,8 @@
+.stock {
+  padding: 20px 140px;
+
+  &__body {
+    border-top-right-radius: $border-radius;
+    overflow: hidden;
+  }
+}

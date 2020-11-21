@@ -1,0 +1,35 @@
+.input {
+  color: black;
+  display: flex;
+  flex-direction: column;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+
+  label {
+    margin: 0 0 4px 10px;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  input {
+    border: 1px solid $primary;
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-light;
+    }
+  }
+  &.error {
+    input {
+      border-color: $red;
+    }
+  }
+}

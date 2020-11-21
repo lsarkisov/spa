@@ -1,0 +1,18 @@
+.modal {
+  border-radius: $border-radius;
+  overflow: hidden;
+  background-color: white;
+
+  &__header {
+    background-color: $primary;
+    color: white;
+    font-size: 20px;
+    line-height: 27px;
+    padding: 17px;
+    text-align: center;
+  }
+
+  &__body {
+    padding: 70px 115px 100px;
+  }
+}

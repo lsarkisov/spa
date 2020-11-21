@@ -1,0 +1,72 @@
+.tabs {
+  border-radius: 20px;
+  overflow: hidden;
+
+  &__header {
+    position: relative;
+    margin: 0 0 0 1px;
+
+    li {
+      display: inline-block;
+    }
+
+    li:first-child {
+      border-top-left-radius: $border-radius;
+    }
+
+    li:last-child {
+      border-top-right-radius: $border-radius;
+    }
+
+    ul {
+      display: flex;
+      position: absolute;
+    }
+  }
+
+  &__item {
+    border: 1px solid $primary;
+    background-color: white;
+    font-size: 14px;
+    line-height: 19px;
+    padding: 8px 45px 12px;
+    margin-left: -1px;
+    cursor: pointer;
+  }
+
+  &__active {
+    background-color: $primary;
+    color: white;
+
+    ul {
+      background-color: $primary;
+      color: white;
+      position: absolute;
+      top: 40px;
+      left: -1px;
+      width: 100%;
+      border-top-right-radius: $border-radius;
+      cursor: default;
+      display: flex;
+      justify-content: center;
+      padding: 17px 0 21px;
+      box-sizing: border-box;
+
+      li {
+        cursor: text;
+        font-size: 16px;
+        line-height: 22px;
+        margin: auto;
+        text-align: left;
+        width: 100%;
+        padding: 0 20px;
+      }
+    }
+  }
+
+  &__body {
+    padding: 60px 5px 10px;
+    background-color: white;
+    border-top-right-radius: $border-radius;
+  }
+}

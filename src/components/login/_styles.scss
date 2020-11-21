@@ -1,0 +1,22 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .button {
+    margin-top: 50px;
+
+    svg {
+      margin-left: 6px;
+    }
+  }
+
+  &__error {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    margin: 7px 0 0;
+  }
+}

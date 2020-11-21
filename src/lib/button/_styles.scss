@@ -1,0 +1,20 @@
+.button {
+  background-color: $primary;
+  color: white;
+  font-size: 16px;
+  line-height: 22px;
+  border-radius: $border-radius;
+  padding: 9px 8px;
+  min-width: 250px;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-light;
+  }
+
+  &:active {
+    background-color: $primary-dark;
+  }
+}

@@ -1,0 +1,53 @@
+.select {
+  svg {
+    transform: rotate(180deg);
+  }
+
+  &__selected {
+    border: 1px solid $primary;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    cursor: pointer;
+
+    svg {
+      margin-left: auto;
+      align-self: center;
+    }
+  }
+
+  &__active {
+    border-radius: 5px 5px 0 0;
+
+    svg {
+      transform: rotate(0deg);
+    }
+  }
+
+  ul {
+    border: 1px solid $primary;
+    box-sizing: border-box;
+    border-radius: 0 0 5px 5px;
+    margin: -1px 0 0;
+  }
+
+  li {
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  li:hover {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $primary;
+      opacity: 0.2;
+    }
+  }
+}
