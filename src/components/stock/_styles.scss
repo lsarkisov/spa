@@ -1,8 +1,14 @@
 .stock {
-  padding: 20px 140px;
+  padding: 20px;
 
   &__body {
     border-top-right-radius: $border-radius;
     overflow: hidden;
+  }
+
+  .table {
+    .row:last-child {
+      border-bottom: 0;
+    }
   }
 }
