@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import reducer from 'reducers'
 import eventsMiddleware from 'middleware'
 
-export default function configureStore(data) {
+export default function configureStore() {
   const sagaMiddleware = createSagaMiddleware()
 
   const store = createStore(

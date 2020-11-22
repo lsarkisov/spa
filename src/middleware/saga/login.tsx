@@ -3,7 +3,7 @@ import { REQUEST, SUCCESS, FAILURE } from 'const/actions'
 import * as types from 'const/requests'
 import * as services from 'services/api'
 
-function* loginSuccess(data) {
+function* loginSuccess(data: any) {
   const payload = yield call(() => services.login(data.payload))
 
   try {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Modal from 'lib/modal'
 import Button from 'lib/button'
 import { ReactComponent as Arrow } from 'assets/img/icons/arrow.svg'
@@ -12,6 +12,7 @@ function Login() {
   const [isValid, setIsValid] = useState<boolean | undefined>(true)
 
   const dispatch = useDispatch()
+  const { status } = useSelector((state: any) => state.login)
 
   useEffect(() => {
     let loginValid, passwordValid
@@ -40,6 +41,10 @@ function Login() {
       )
     }
   }
+
+  useEffect(() => {
+    console.log('status', status)
+  }, [status])
 
   return (
     <div className="login">
