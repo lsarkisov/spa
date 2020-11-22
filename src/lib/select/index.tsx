@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { ReactComponent as Angle } from 'assets/img/icons/angle.svg'
-import { type } from 'os'
 
 type t = {
   options: string[]

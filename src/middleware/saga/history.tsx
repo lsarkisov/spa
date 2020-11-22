@@ -3,16 +3,16 @@ import { REQUEST, SUCCESS, FAILURE } from 'const/actions'
 import * as types from 'const/requests'
 import callApi from 'services/api'
 
-function* loginSuccess(data: any) {
+function* historySuccess(data: any) {
   const payload = yield call(() => callApi(data.payload))
 
   try {
-    yield put({ type: types.LOGIN[SUCCESS], payload })
+    yield put({ type: types.HISTORY[SUCCESS], payload })
   } catch (error) {
-    yield put({ type: types.LOGIN[FAILURE], error })
+    yield put({ type: types.HISTORY[FAILURE], error })
   }
 }
 
-export function* loginRequest() {
-  yield takeEvery(types.LOGIN[REQUEST], loginSuccess)
+export function* historyRequest() {
+  yield takeEvery(types.HISTORY[REQUEST], historySuccess)
 }

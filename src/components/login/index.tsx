@@ -78,7 +78,9 @@ function Login() {
             Вход <Arrow />
           </Button>
           {!isValid && (
-            <p className="login__error error">Неверный логин или пароль</p>
+            <p className="login__error error">
+              {status ? status.error : 'Неверный логин или пароль'}
+            </p>
           )}
         </div>
       </Modal>

@@ -10,3 +10,4 @@ function createRequestTypes(base: string) {
 /* Constants
 ----------------------------------------*/
 export const LOGIN = createRequestTypes('LOGIN')
+export const HISTORY = createRequestTypes('HISTORY')

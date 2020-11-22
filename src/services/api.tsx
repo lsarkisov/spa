@@ -1,6 +1,6 @@
 import { API_URL } from 'const/api'
 
-function callApi(payload: any) {
+export default function callApi(payload: any) {
   return fetch(`${API_URL}`, {
     method: 'POST',
     headers: {
@@ -14,7 +14,3 @@ function callApi(payload: any) {
     .then((response) => response)
     .catch((error) => error)
 }
-
-/* Search
-----------------------------------------*/
-export const login = (payload: any) => callApi(payload)

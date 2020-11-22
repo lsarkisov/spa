@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  align-items: center;
+
+  svg {
+    cursor: pointer;
+  }
+
+  input {
+    width: 28px;
+    text-align: center;
+    margin-right: 3px;
+  }
+
+  &__right {
+    transform: rotate(180deg);
+  }
+
+  &__position {
+    margin: 0 15px;
+  }
+
+  &__pages {
+    margin-left: 3px;
+  }
+}
