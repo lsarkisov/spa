@@ -1,13 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Modal from 'lib/modal'
 import Button from 'lib/button'
 import { ReactComponent as Arrow } from 'assets/img/icons/arrow.svg'
 import { Input } from 'lib'
+import { loginAction } from 'actions/login'
 
 function Login() {
-  const [login, setLogin] = useState<string | undefined>()
-  const [password, setPassword] = useState<string | undefined>()
+  const [login, setLogin] = useState<string | undefined>('')
+  const [password, setPassword] = useState<string | undefined>('')
   const [isValid, setIsValid] = useState<boolean | undefined>(false)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    let loginValid, passwordValid
+
+    if (login && login.length) {
+      loginValid = /^([\w\d._\-#])+@([\w\d._\-#]+[.][\w\d._\-#]+)+$/.test(login)
+    }
+
+    if (password && password.length) {
+      passwordValid = !/[^a-z0-9_]/gi.test(password) && password.length > 6
+    }
+
+    if (loginValid !== undefined || passwordValid !== undefined) {
+      setIsValid(!(loginValid && passwordValid))
+    }
+  }, [login, password])
+
+  const onClick = () => {
+    if (!isValid) {
+      dispatch(
+        loginAction({
+          action: 'login',
+          login,
+          password,
+        }),
+      )
+    }
+  }
 
   return (
     <div className="login">
@@ -15,7 +47,6 @@ function Login() {
         <Input
           label="Логин"
           type="text"
-          placeholder="user@mail.ru"
           value={login}
           onChange={setLogin}
           error={isValid}
@@ -28,12 +59,14 @@ function Login() {
           onChange={setPassword}
           error={isValid}
         />
-        <Button>
-          Вход <Arrow />
-        </Button>
-        {isValid && (
-          <p className="login__error error">Неверный логин или пароль</p>
-        )}
+        <div className="relative">
+          <Button onClick={onClick}>
+            Вход <Arrow />
+          </Button>
+          {isValid && (
+            <p className="login__error error">Неверный логин или пароль</p>
+          )}
+        </div>
       </Modal>
     </div>
   )

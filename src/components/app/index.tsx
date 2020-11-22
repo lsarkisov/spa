@@ -5,8 +5,8 @@ import Stock from 'components/stock'
 function App() {
   return (
     <div className="app">
-      {/* <Login /> */}
-      <Stock />
+      <Login />
+      {/* <Stock /> */}
     </div>
   )
 }
