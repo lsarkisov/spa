@@ -9,7 +9,7 @@ import { loginAction } from 'actions/login'
 function Login() {
   const [login, setLogin] = useState<string | undefined>('')
   const [password, setPassword] = useState<string | undefined>('')
-  const [isValid, setIsValid] = useState<boolean | undefined>(false)
+  const [isValid, setIsValid] = useState<boolean | undefined>(true)
 
   const dispatch = useDispatch()
 
@@ -25,12 +25,12 @@ function Login() {
     }
 
     if (loginValid !== undefined || passwordValid !== undefined) {
-      setIsValid(!(loginValid && passwordValid))
+      setIsValid(loginValid && passwordValid)
     }
   }, [login, password])
 
   const onClick = () => {
-    if (!isValid) {
+    if (isValid) {
       dispatch(
         loginAction({
           action: 'login',
@@ -49,7 +49,7 @@ function Login() {
           type="text"
           value={login}
           onChange={setLogin}
-          error={isValid}
+          error={!isValid}
         />
         <Input
           label="Пароль"
@@ -57,13 +57,13 @@ function Login() {
           placeholder="*********"
           value={password}
           onChange={setPassword}
-          error={isValid}
+          error={!isValid}
         />
         <div className="relative">
           <Button onClick={onClick}>
             Вход <Arrow />
           </Button>
-          {isValid && (
+          {!isValid && (
             <p className="login__error error">Неверный логин или пароль</p>
           )}
         </div>
