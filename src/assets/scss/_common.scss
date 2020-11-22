@@ -12,6 +12,12 @@ body,
 body {
   background-color: $gray;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  max-width: 1400px;
 }
 
 ul {

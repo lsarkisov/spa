@@ -1,5 +1,7 @@
 .stock {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 
   &__body {
     border-top-right-radius: $border-radius;
@@ -10,5 +12,14 @@
     .row:last-child {
       border-bottom: 0;
     }
+  }
+
+  .button__default {
+    display: inline-block;
+    margin-left: auto;
+  }
+
+  .tabs {
+    margin-top: 50px;
   }
 }
