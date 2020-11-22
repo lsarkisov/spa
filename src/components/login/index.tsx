@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import Modal from 'lib/modal'
 import Button from 'lib/button'
 import { ReactComponent as Arrow } from 'assets/img/icons/arrow.svg'
@@ -11,6 +12,7 @@ function Login() {
   const [password, setPassword] = useState<string | undefined>('')
   const [isValid, setIsValid] = useState<boolean | undefined>(true)
 
+  const history = useHistory()
   const dispatch = useDispatch()
   const { status } = useSelector((state: any) => state.login)
 
@@ -43,8 +45,15 @@ function Login() {
   }
 
   useEffect(() => {
-    console.log('status', status)
-  }, [status])
+    if (status && status.result === 'ok') {
+      localStorage.setItem('auth', 'ok')
+      history.push('/stock')
+    }
+
+    if (status && status.result === 'error') {
+      setIsValid(false)
+    }
+  }, [status, history])
 
   return (
     <div className="login">

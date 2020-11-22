@@ -18,3 +18,19 @@
     background-color: $primary-dark;
   }
 }
+
+.button__default {
+  background-color: transparent;
+  color: $primary;
+  border: 1px solid $primary;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+}

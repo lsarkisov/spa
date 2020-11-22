@@ -1,5 +1,6 @@
 import React from 'react'
 import { Select, Tabs } from 'lib'
+import Logout from 'components/logout'
 
 const tabs = [
   {
@@ -19,6 +20,7 @@ const tabs = [
 function Stock() {
   return (
     <div className="stock">
+      <Logout />
       <Tabs tabs={tabs}>
         <div className="table">
           <ul className="row">

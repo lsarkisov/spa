@@ -7,7 +7,7 @@ export default function NoMatch(props: any) {
   return (
     <div className="no-match">
       <h2>
-        <Link to="/">Home page</Link>
+        <Link to="/login">Login page</Link>
       </h2>
       <h3>
         No match for <code>{location.pathname}</code>
