@@ -27,13 +27,23 @@ function History() {
     return index >= page * pageSize && index < page * pageSize + pageSize
   }
 
+  const sortHistory = (
+    item1: HistoryStockDetails,
+    item2: HistoryStockDetails,
+  ): number => {
+    return Date.parse(item1.startDate) - Date.parse(item2.startDate)
+  }
+
   return (
     <div className="stock__history">
       <div className="table">
         {history &&
           history.result === 'ok' &&
           history.deals
-            .filter((item: any, index: number) => rangeOfHistory(index))
+            .filter((item: HistoryStockDetails, index: number) =>
+              rangeOfHistory(index),
+            )
+            .sort(sortHistory)
             .map((details: HistoryStockDetails) => (
               <ul className="row" key={`${details.asset}-${details.startDate}`}>
                 <li>{details.asset}</li>
