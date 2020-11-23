@@ -38,8 +38,12 @@ function Pagination(props: any) {
         <Arrow onClick={() => setCurrent(current - 1)} />
       </span>
       <span className="pagination__position">
-        <input type="text" onChange={onPageEnter} /> /
-        <span className="pagination__pages">{totalPages}</span>
+        <input
+          type="text"
+          onChange={onPageEnter}
+          placeholder={(current + 1).toString()}
+        />{' '}
+        /<span className="pagination__pages">{totalPages}</span>
       </span>
       <span className={`${current === totalPages - 1 ? 'disabled' : ''}`}>
         <Arrow

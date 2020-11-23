@@ -23,8 +23,6 @@ function Stock() {
     <div className="stock">
       <Logout />
       <Tabs tabs={tabs}>
-        <History />
-
         <div className="table">
           <ul className="row">
             <li>1 test 1</li>
@@ -50,6 +48,8 @@ function Stock() {
             </tr>
           </tbody>
         </table>
+
+        <History />
 
         <Select
           options={['CAD', 'CHF', 'EUR', 'GBP', 'JPY']}
