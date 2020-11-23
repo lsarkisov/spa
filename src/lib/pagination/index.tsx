@@ -19,7 +19,9 @@ function Pagination(props: any) {
   const onPageEnter = (e: React.BaseSyntheticEvent) => {
     const value = parseInt(e.target.value, 10)
 
-    if (e.target.value.trim() !== '') {
+    console.log(value, totalPages, current)
+
+    if (value && e.target.value.trim() !== '') {
       if (/[^\d+$]/.test(e.target.value.trim())) {
         setCurrent(current)
       } else if (value < 2) {
@@ -27,7 +29,7 @@ function Pagination(props: any) {
       } else if (value > totalPages) {
         setCurrent(totalPages - 1)
       } else {
-        setCurrent(value)
+        setCurrent(value - 1)
       }
     }
   }

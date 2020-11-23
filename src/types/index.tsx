@@ -3,11 +3,17 @@ export interface LoginStatus {
   error?: string
 }
 
-export interface StockDetails {
+export interface HistoryStockDetails {
   asset: string
   finishDate: string
   finishQuote: string
   profit: string
   startDate: string
   startQuote: string
+}
+
+export interface QuoteStockAssets {
+  asset: string
+  startDate: string
+  quote: string
 }

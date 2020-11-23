@@ -9,8 +9,23 @@
   }
 
   .table {
+    height: 436px;
+    overflow-y: auto;
+    margin-top: 17px;
+
     .row:last-child {
       border-bottom: 0;
+    }
+  }
+
+  &__convertor-wrapper {
+    margin-top: 17px;
+    height: 436px;
+  }
+
+  &__history {
+    .table {
+      height: 360px;
     }
   }
 
@@ -26,5 +41,66 @@
   .pagination {
     justify-content: center;
     margin-top: 53px;
+  }
+
+  &__quote {
+    .row {
+      li:first-child {
+        width: 50px;
+      }
+    }
+  }
+
+  .tabs__item:first-child {
+    li:first-child {
+      width: 125px;
+    }
+  }
+
+  .tabs__item:nth-child(2) {
+    li {
+      text-align: center;
+    }
+  }
+
+  &__convertor {
+    width: 100%;
+
+    &-wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: $gray;
+      }
+    }
+
+    .input,
+    .select,
+    .button {
+      margin-top: -210px;
+    }
+
+    .input {
+      top: -4px;
+      right: 20px;
+      position: relative;
+    }
+
+    .select {
+      margin-right: 5px;
+    }
+
+    .button {
+      margin-left: 20px;
+    }
   }
 }

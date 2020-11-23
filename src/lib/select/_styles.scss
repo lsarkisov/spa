@@ -10,12 +10,12 @@
     border: 1px solid $primary;
     box-sizing: border-box;
     border-radius: 5px;
-    padding: 10px;
+    padding: 8px 10px;
     display: flex;
     cursor: pointer;
 
     svg {
-      margin-left: auto;
+      margin-left: 16px;
       align-self: center;
     }
   }

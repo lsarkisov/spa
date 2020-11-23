@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { historyAction } from 'actions/stock'
 import { Pagination } from 'lib'
-import { StockDetails } from 'types'
+import { HistoryStockDetails } from 'types'
 import { formatDate } from 'utils'
 
 function History() {
   const [page, setPage] = useState(0)
-  const { history } = useSelector((state: any) => state.stock)
+  const { history } = useSelector((state: any) => state.stockHistory)
   const dispatch = useDispatch()
-  const pageSize = 5
+  const pageSize = 20
 
   useEffect(() => {
     if (!history) {
@@ -34,7 +34,7 @@ function History() {
           history.result === 'ok' &&
           history.deals
             .filter((item: any, index: number) => rangeOfHistory(index))
-            .map((details: StockDetails) => (
+            .map((details: HistoryStockDetails) => (
               <ul className="row" key={`${details.asset}-${details.startDate}`}>
                 <li>{details.asset}</li>
                 <li>{formatDate(details.startDate)}</li>

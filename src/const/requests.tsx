@@ -11,3 +11,4 @@ function createRequestTypes(base: string) {
 ----------------------------------------*/
 export const LOGIN = createRequestTypes('LOGIN')
 export const HISTORY = createRequestTypes('HISTORY')
+export const QUOTE = createRequestTypes('QUOTE')

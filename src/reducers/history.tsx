@@ -1,20 +1,20 @@
 import * as types from 'const/requests'
 import { SUCCESS, FAILURE } from 'const/actions'
-import { StockDetails } from 'types'
+import { HistoryStockDetails } from 'types'
 
 const initialState = {
   history: null,
 }
 
-interface StockAction {
+interface HistoryAction {
   type: typeof types.HISTORY
   payload: {
     result: string
-    details: StockDetails[]
+    details: HistoryStockDetails[]
   }
 }
 
-const stock = (state: typeof initialState, action: StockAction) => {
+const stockHistory = (state: typeof initialState, action: HistoryAction) => {
   switch (action.type) {
     case types.HISTORY[SUCCESS]:
       return Object.assign({}, state, {
@@ -31,4 +31,4 @@ const stock = (state: typeof initialState, action: StockAction) => {
   }
 }
 
-export default stock
+export default stockHistory
