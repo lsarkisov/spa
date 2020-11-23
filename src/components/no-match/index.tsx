@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 
-export default function NoMatch(props: any) {
+export default function NoMatch() {
   const [authenticated, setAuthenticated] = useState(
     !!localStorage.getItem('auth'),
   )

@@ -24,6 +24,7 @@ function Stock() {
       <Logout />
       <Tabs tabs={tabs}>
         <History />
+
         <div className="table">
           <ul className="row">
             <li>1 test 1</li>

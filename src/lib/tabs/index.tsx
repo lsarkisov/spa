@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
 
-type t = { title: string; nav: string[] }
+export interface Tab {
+  title: string
+  nav: string[]
+}
 
-function Tabs(props: any) {
+interface TabsType {
+  tabs: Tab[]
+  children: any
+}
+
+function Tabs(props: TabsType) {
   const { tabs } = props
   const [active, setActive] = useState<number>(0)
 
@@ -10,7 +18,7 @@ function Tabs(props: any) {
     <div className="tabs">
       <ul className="tabs__header">
         {tabs &&
-          tabs.map((tab: t, index: number) => (
+          tabs.map((tab: Tab, index: number) => (
             <li
               key={tab.title}
               onClick={() => setActive(index)}

@@ -1,9 +1,17 @@
 import * as types from 'const/requests'
 import { SUCCESS, FAILURE } from 'const/actions'
+import { LoginStatus } from 'types'
 
-const initialState = {}
+const initialState = {
+  status: null,
+}
 
-const login = (state: typeof initialState, action: any) => {
+interface Action {
+  type: typeof types.LOGIN
+  payload: LoginStatus
+}
+
+const login = (state: typeof initialState, action: Action) => {
   switch (action.type) {
     case types.LOGIN[SUCCESS]:
       return Object.assign({}, state, {

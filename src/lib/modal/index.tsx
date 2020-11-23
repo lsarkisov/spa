@@ -1,6 +1,11 @@
 import React from 'react'
 
-function Modal(props: any) {
+interface ModalType {
+  title: string
+  children: React.ReactNode
+}
+
+function Modal(props: ModalType) {
   return (
     <div className="modal">
       <header className="modal__header">{props.title}</header>

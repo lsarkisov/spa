@@ -2,34 +2,51 @@ import React, { useEffect, useState } from 'react'
 import { ReactComponent as Arrow } from 'assets/img/icons/pagination-arrow.svg'
 
 function Pagination(props: any) {
-  const [current, setCurrent] = useState()
+  const [current, setCurrent] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
+  const { size, pageSize, onChange } = props
+
+  useEffect(() => {
+    onChange(current)
+  }, [current, onChange])
 
   useEffect(() => {
     if (!totalPages) {
-      setTotalPages(Math.ceil(size / pageSize))
+      setTotalPages(Math.floor(size / pageSize))
     }
-  }, [totalPages])
+  }, [totalPages, size, pageSize])
 
-  const onChange = (e: any) => {
-    console.log('DATA', e.target.value)
-    setCurrent(e.target.value)
+  const onPageEnter = (e: React.BaseSyntheticEvent) => {
+    const value = parseInt(e.target.value, 10)
+
+    if (e.target.value.trim() !== '') {
+      if (/[^\d+$]/.test(e.target.value.trim())) {
+        setCurrent(current)
+      } else if (value < 2) {
+        setCurrent(0)
+      } else if (value > totalPages) {
+        setCurrent(totalPages - 1)
+      } else {
+        setCurrent(value)
+      }
+    }
   }
 
-  const { size, pageSize } = props
   return (
     <div className="pagination">
-      <Arrow />
-      <span className="pagination__position">
-        <input
-          type="text"
-          placeholder="1"
-          value={current}
-          onChange={onChange}
-        />{' '}
-        /<span className="pagination__pages">{totalPages}</span>
+      <span className={`${current === 0 ? 'disabled' : ''}`}>
+        <Arrow onClick={() => setCurrent(current - 1)} />
       </span>
-      <Arrow className="pagination__right" />
+      <span className="pagination__position">
+        <input type="text" onChange={onPageEnter} /> /
+        <span className="pagination__pages">{totalPages}</span>
+      </span>
+      <span className={`${current === totalPages - 1 ? 'disabled' : ''}`}>
+        <Arrow
+          className="pagination__right"
+          onClick={() => setCurrent(current + 1)}
+        />
+      </span>
     </div>
   )
 }

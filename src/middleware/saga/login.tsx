@@ -2,8 +2,9 @@ import { put, call, takeEvery } from 'redux-saga/effects'
 import { REQUEST, SUCCESS, FAILURE } from 'const/actions'
 import * as types from 'const/requests'
 import callApi from 'services/api'
+import { LoginInterface } from 'actions/login'
 
-function* loginSuccess(data: any) {
+function* loginSuccess(data: LoginInterface) {
   const payload = yield call(() => callApi(data.payload))
 
   try {
