@@ -83,6 +83,27 @@
       }
     }
 
+    .relative {
+      margin-bottom: -129px;
+    }
+
+    &-result {
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      dt {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      dd {
+        margin: 0;
+        font-size: 20px;
+        line-height: 27px;
+      }
+    }
+
     .input,
     .select,
     .button {
@@ -90,9 +111,10 @@
     }
 
     .input {
-      top: -4px;
+      top: -3px;
       right: 20px;
       position: relative;
+      width: 80px;
     }
 
     .select {
