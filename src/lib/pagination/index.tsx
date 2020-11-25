@@ -19,9 +19,7 @@ function Pagination(props: any) {
   const onPageEnter = (e: React.BaseSyntheticEvent) => {
     const value = parseInt(e.target.value, 10)
 
-    console.log(value, totalPages, current)
-
-    if (value && e.target.value.trim() !== '') {
+    if (value && e.target.value.trim() !== '' && !isNaN(value)) {
       if (/[^\d+$]/.test(e.target.value.trim())) {
         setCurrent(current)
       } else if (value < 2) {
@@ -44,6 +42,7 @@ function Pagination(props: any) {
           type="text"
           onChange={onPageEnter}
           placeholder={(current + 1).toString()}
+          value={current + 1}
         />{' '}
         /<span className="pagination__pages">{totalPages}</span>
       </span>
