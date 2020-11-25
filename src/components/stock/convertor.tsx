@@ -26,7 +26,10 @@ function Convertor() {
   const onCalculate = () => {
     if (amount) {
       const { assets } = quote
-      setResult(parseFloat(assets[to].quote) / parseFloat(assets[from].quote))
+      setResult(
+        (parseFloat(assets[to].quote) / parseFloat(assets[from].quote)) *
+          parseFloat(amount),
+      )
     }
   }
 
