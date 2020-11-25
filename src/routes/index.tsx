@@ -46,6 +46,9 @@ function Routes() {
           component={Stock}
           path="/stock"
         />
+        <Route exact path="/">
+          {authenticated ? <Redirect to="/stock" /> : <Redirect to="/login" />}
+        </Route>
         <PublicRoute component={NoMatch} />
       </Switch>
     </Router>
