@@ -11,6 +11,7 @@ function Login() {
   const [login, setLogin] = useState<string | undefined>('')
   const [password, setPassword] = useState<string | undefined>('')
   const [isValid, setIsValid] = useState<boolean | undefined>(true)
+  const isLogged = localStorage.getItem('auth') === 'ok'
 
   const history = useHistory()
   const dispatch = useDispatch()
@@ -74,7 +75,8 @@ function Login() {
           onChange={setPassword}
           error={!isValid}
         />
-        <div className="relative">
+        {console.log(status)}
+        <div className={`relative ${isLogged ? 'disabled' : ''}`}>
           <Button onClick={onClick}>
             Вход <Arrow />
           </Button>
