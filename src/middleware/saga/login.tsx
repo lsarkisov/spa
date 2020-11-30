@@ -22,7 +22,7 @@ function* loginSuccess(data: LoginInterface) {
   // Real request to the server
   // const payload = yield call(() => callApi(data.payload))
 
-  // Mock data for login
+  // Mock function for auth
   const payload = yield mockAuth(data.payload)
 
   try {

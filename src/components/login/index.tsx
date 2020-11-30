@@ -61,6 +61,7 @@ function Login() {
         <Input
           label="Логин"
           type="text"
+          placeholder="email"
           value={login}
           onChange={setLogin}
           error={!isValid}
